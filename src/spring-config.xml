@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--基于注解的DI默认是关闭的，需要如下方式开启-->
+    <context:annotation-config/>
+    <!--
+        扫描包，实例化包下面所有符合条件的Bean的实例
+        符合条件的Bean为Employee、Manager，框架直接进行了注解注入
+        不符合条件的Bean为User，所以User需要手动在xml注入，如下面的<bean .../>所示
+    -->
+    <context:component-scan base-package="com.sleepy.zeo.model"/>
+    <!--
+        scope
+            singleton(默认)，所有该类的对象都是同一个实例
+            prototype，每次获取的对象都是该类的新的实例
+
+        如果往属性里传递值，用value
+        如果往属性里传递对象引用，用ref
+    -->
+    <bean id="user" class="com.sleepy.zeo.model.User"/>
+
+
+    <!--基于注解的aop默认是关闭的，需要如下方式开启-->
+    <aop:aspectj-autoproxy/>
+    <context:component-scan base-package="com.sleepy.zeo.aop"/>
+
+</beans>
