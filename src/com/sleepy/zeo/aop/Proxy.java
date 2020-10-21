@@ -4,6 +4,11 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
+/**
+ * AOP(Aspect Oriented Programming)
+ *
+ * 设置切面
+ */
 @Aspect
 @Component
 public class Proxy {

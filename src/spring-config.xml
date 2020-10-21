@@ -26,6 +26,7 @@
 
     <!--基于注解的aop默认是关闭的，需要如下方式开启-->
     <aop:aspectj-autoproxy/>
+    <!--该包下面只有Proxy类会创建Bean的实例-->
     <context:component-scan base-package="com.sleepy.zeo.aop"/>
 
 </beans>

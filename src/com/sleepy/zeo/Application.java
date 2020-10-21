@@ -17,7 +17,6 @@ public class Application {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring-config.xml");
 
-
         User user = context.getBean("user", User.class);
         System.out.println("==>" + user.toString());
     }
