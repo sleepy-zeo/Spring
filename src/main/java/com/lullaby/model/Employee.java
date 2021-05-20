@@ -1,13 +1,16 @@
-package com.sleepy.zeo.model;
+package com.lullaby.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 // 注解DI
 @Component
 public class Employee {
 
+    @Value("lullaby")
     private String name;
+    @Value("34")
     private int age;
     @Autowired
     private Manager manager;

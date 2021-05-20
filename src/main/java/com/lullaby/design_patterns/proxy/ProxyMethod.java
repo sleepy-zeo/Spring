@@ -1,4 +1,4 @@
-package com.sleepy.zeo.design_patterns.proxy;
+package com.lullaby.design_patterns.proxy;
 
 /**
  * 代理模式
@@ -7,6 +7,7 @@ package com.sleepy.zeo.design_patterns.proxy;
  * 采用一个代理类调用原有的方法，然后在调用前后进行对原方法的改进
  */
 public class ProxyMethod {
+
     public static interface Sourceable {
         public void method();
     }

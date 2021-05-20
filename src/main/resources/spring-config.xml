@@ -5,14 +5,15 @@
        xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <!--基于注解的DI默认是关闭的，需要如下方式开启-->
+    <!-- 基于注解的DI(Dependency Inject，包括@Component等注解)默认是关闭的，需要如下方式开启 -->
+    <!-- 貌似是默认打开的，我注解掉该行对输出无影响? -->
     <context:annotation-config/>
     <!--
         扫描包，实例化包下面所有符合条件的Bean的实例
         符合条件的Bean为Employee、Manager，框架直接进行了注解注入
         不符合条件的Bean为User，所以User需要手动在xml注入，如下面的<bean .../>所示
     -->
-    <context:component-scan base-package="com.sleepy.zeo.model"/>
+    <context:component-scan base-package="com.lullaby.model"/>
     <!--
         scope
             singleton(默认)，所有该类的对象都是同一个实例
@@ -21,12 +22,14 @@
         如果往属性里传递值，用value
         如果往属性里传递对象引用，用ref
     -->
-    <bean id="user" class="com.sleepy.zeo.model.User"/>
+    <bean id="user" class="com.lullaby.model.User">
+        <property name="name" value="steven"/>
+    </bean>
 
 
-    <!--基于注解的aop默认是关闭的，需要如下方式开启-->
+    <!-- 基于注解的aop默认是关闭的，需要如下方式开启 -->
     <aop:aspectj-autoproxy/>
-    <!--该包下面只有Proxy类会创建Bean的实例-->
-    <context:component-scan base-package="com.sleepy.zeo.aop"/>
+    <!-- 该包下面只有Proxy类会创建Bean的实例 -->
+    <context:component-scan base-package="com.lullaby.aop"/>
 
 </beans>

@@ -1,6 +1,9 @@
-package com.sleepy.zeo;
+package com.lullaby;
 
-import com.sleepy.zeo.model.User;
+import com.lullaby.aop.Pointcuts;
+import com.lullaby.model.Employee;
+import com.lullaby.model.Manager;
+import com.lullaby.model.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -19,5 +22,14 @@ public class Application {
 
         User user = context.getBean("user", User.class);
         System.out.println("==>" + user.toString());
+
+        Manager manager = context.getBean("manager", Manager.class);
+        System.out.println("==>" + manager.toString());
+
+        Employee employee = context.getBean("employee", Employee.class);
+        System.out.println("==>" + employee.toString());
+
+//        Pointcuts pointcuts = new Pointcuts();
+//        pointcuts.pointcut();
     }
 }
