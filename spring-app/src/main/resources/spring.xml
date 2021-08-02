@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 基于注解的DI(Dependency Inject，包括@Component等注解)默认是关闭的，需要如下方式开启 -->
+    <!-- component-scan包含该配置，所以配置了component-scan后无需配置context:annotation-config -->
+    <!-- <context:annotation-config/> -->
+    <!-- 扫描包，实例化包下面所有符合条件的Bean的实例 -->
+    <context:component-scan base-package="org.piper.springapp"/>
+
+    <!-- 基于注解的aop默认是关闭的，需要如下方式开启，需要额外依赖aspectjweaver.jar包 -->
+    <aop:aspectj-autoproxy/>
+
+    <!--
+        scope
+            singleton(默认)，所有该类的对象都是同一个实例
+            prototype，每次获取的对象都是该类的新的实例
+        如果往属性里传递值，用value
+        如果往属性里传递对象引用，用ref
+    -->
+    <bean id="user" class="org.piper.springapp.domain.User">
+        <property name="name" value="steven"/>
+        <property name="age" value="27"/>
+    </bean>
+</beans>
