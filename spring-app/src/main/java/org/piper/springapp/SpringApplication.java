@@ -8,6 +8,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SpringApplication {
 
+    /**
+     * BeanFactory
+     *      是Spring里低层次的接口，提供了实例化Bean和获取Bean的功能，是最基础的容器
+     *
+     * ApplicationContext
+     *      继承自BeanFactory，提供了更多的功能，是更高级的容器
+     */
     public static void main(String[] args){
         ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring.xml");
 
@@ -22,6 +29,6 @@ public class SpringApplication {
         UserService userService = context.getBean("userService", UserService.class);
         userService.getUser("sleepy", 20);
         System.out.println("------");
-        userService.setUser("jj");
+        userService.setUser("sunbeam");
     }
 }
